@@ -22,7 +22,7 @@ if response.status_code == 200:
             "item": item['Item'],
             "price": item['price'],
             "description": item['description']
-        })
+        }) # Dicionario de cada chave do restaurante
 
 else:
     print(f'O erro foi {response.status_code}')
@@ -33,8 +33,9 @@ else:
     
 for nome_do_restaurante, dados in dados_restaurante.items():
     nome_do_arquivo = f'{nome_do_restaurante}.json'
-    with open(nome_do_arquivo, 'w') as arquivo_restaurante:
+    with open(nome_do_arquivo, 'w') as arquivo_restaurante: #Para criar o arquivo
         json.dump(dados,arquivo_restaurante,indent=4)
+        # Entre parênteses, vamos passar três informações. Primeiro, quais são os dados que queremos exibir? Nesse, vamos colocar os dados que recebemos do for. Após uma vírgula, colocamos o nome do arquivo que estamos trabalhando, que é o arquivo_restaurante. E, por último, a identação para ficar organizado. Vamos colocar um indent igual a 4.
 
 #O método .items() retorna uma lista de tuplas, onde cada tupla é composta por um par (chave, valor). Assim, quando fazemos for nome_do_restaurante, dados in dados_restaurante.items(), estamos basicamente dizendo "para cada par (chave, valor) no dicionário dados_restaurante, atribua a chave à variável nome_do_restaurante e o valor à variável dados
 
